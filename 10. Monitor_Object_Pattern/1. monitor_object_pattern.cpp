@@ -1,25 +1,25 @@
-/**
+ /**
  * [Description]
- * 
- * One important step towards such a construct is to implement a monitor object, 
- * which is a design pattern that synchronizes concurrent method execution to ensure that 
- * only one method at a time runs within an object. It also allows an object's methods to 
- * cooperatively schedule their execution sequences. The problem solved by this pattern 
- * is based on the observation that many applications contain objects whose methods are 
- * invoked concurrently by multiple client threads. These methods often modify the state of their objects, 
- * for example by adding data to an internal vector. For such concurrent programs to execute correctly, 
- * it is necessary to synchronize and schedule access to the objects very carefully. 
- * The idea of a monitor object is to synchronize  the access to an object's methods so that 
+ *
+ * One important step towards such a construct is to implement a monitor object,
+ * which is a design pattern that synchronizes concurrent method execution to ensure that
+ * only one method at a time runs within an object. It also allows an object's methods to
+ * cooperatively schedule their execution sequences. The problem solved by this pattern
+ * is based on the observation that many applications contain objects whose methods are
+ * invoked concurrently by multiple client threads. These methods often modify the state of their objects,
+ * for example by adding data to an internal vector. For such concurrent programs to execute correctly,
+ * it is necessary to synchronize and schedule access to the objects very carefully.
+ * The idea of a monitor object is to synchronize  the access to an object's methods so that
  * only one method can execute at any one time.
- * 
- * While the functionality of the monitor object we have constructed is an improvement over 
- * many other methods that allow passing data to threads, it has one significant disadvantage: 
- * The main thread has to wait until all worker threads have completed their jobs and only then 
- * can it access the added data in bulk. A system which is truly interactive however has to 
- * react to events as they arrive - it should not wait until all threads have completed 
- * their jobs but instead act immediately as soon as new data arrives. 
+ *
+ * While the functionality of the monitor object we have constructed is an improvement over
+ * many other methods that allow passing data to threads, it has one significant disadvantage:
+ * The main thread has to wait until all worker threads have completed their jobs and only then
+ * can it access the added data in bulk. A system which is truly interactive however has to
+ * react to events as they arrive - it should not wait until all threads have completed
+ * their jobs but instead act immediately as soon as new data arrives.
  * In the following, we want to add this functionality to our monitor object.
- * 
+ *
  * */
 
 #include <iostream>
@@ -94,7 +94,7 @@ int main()
 
 /**
  * [Output]
- * 
+ *
  * Spawning threads...
    Vehicle #0 will be added to the queue.
    Vehicle #1 will be added to the queue.
@@ -106,7 +106,7 @@ int main()
    Vehicle #6 will be added to the queue.
    Vehicle #8 will be added to the queue.
    Vehicle #9 will be added to the queue.
-Collecting results ... 
+Collecting results ...
    Vehicle #0 is now waiting in the queue.
    Vehicle #1 is now waiting in the queue.
    Vehicle #2 is now waiting in the queue.

@@ -1,8 +1,8 @@
 /**
  * [Description]
- * Using mutexes can significantly reduce the risk of data races as seen in the example above. 
- * But imagine what would happen if an exception was thrown while executing code in the 
- * critical section, i.e. between lock and unlock. In such a case, the mutex would remain 
+ * Using mutexes can significantly reduce the risk of data races as seen in the example above.
+ * But imagine what would happen if an exception was thrown while executing code in the
+ * critical section, i.e. between lock and unlock. In such a case, the mutex would remain
  * locked indefinitely and no other thread could unlock it - the program would most likely freeze.
  * */
 
@@ -62,7 +62,7 @@ int main()
 
 /**
  * [Output]
- * 
+ *
  * Execption from thread: Division by zero!
  * for denom = -5, the result is 10
  * for denom = -4, the result is for denom = -3, the result is 10
@@ -73,12 +73,12 @@ int main()
  * for denom = 3, the result is 10
  * for denom = 4, the result is 10
  * 10
- * for denom = 5, the result is 10 
- * 
+ * for denom = 5, the result is 10
+ *
  * [Explain]
- * As can easily be seen, the console output is totally mixed up and some results appear multiple times. 
+ * As can easily be seen, the console output is totally mixed up and some results appear multiple times.
  * There are several issues with this program, so let us look at them in turn:
- *   1. The thread function writes its result to a global variable which is passed to it by reference. 
+ *   1. The thread function writes its result to a global variable which is passed to it by reference.
  *      This will cause a data race as illustrated in the last section. The sleep_for function exposes the data race clearly.
  *   2. The result is printed to the console by several threads at the same time, causing the chaotic output.
  */
